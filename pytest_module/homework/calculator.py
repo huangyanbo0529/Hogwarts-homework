@@ -4,6 +4,9 @@
 # Tool ：IntelliJ IDEA
 
 class Calculator:
+    def __int__(self):
+        super.__init__()
+
     def add(self, a, b):
         return a + b
 
