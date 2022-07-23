@@ -5,7 +5,9 @@
 import pytest
 import yaml
 
-file_name = "./data.yml"
+from common.base import root_path
+
+file_name = root_path + "\\pytest_module\\examples\\data.yml"
 
 
 def get_data():
