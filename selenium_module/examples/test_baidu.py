@@ -5,19 +5,13 @@
 from time import sleep
 
 import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+from selenium_module.examples.base import Base
 
-class TestBaidu:
-    def setup_class(self):
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(5)
 
-    def teardown_class(self):
-        self.driver.quit()
+class TestBaidu(Base):
 
     def test_baidu_search(self):
         self.driver.get("https://www.baidu.com/")
