@@ -5,6 +5,22 @@
 import pytest
 
 
-@pytest.fixture()
+# autouse默认为False,True自动引用，不需要显示指定
+@pytest.fixture(scope="module", autouse=True)
 def my_fixture():
     print("执行my_fixture")
+
+
+def pytest_collection_modifyitems(session, config, items):
+    #
+    print(type(items))
+    # items.reverse()
+    # 解决编码问题（中文测试用例名称）
+    for item in items:
+        item.name = item.name.encode('utf-8').decode('unicode-escape')
+        item._nodeid = item.nodeid.encode('utf-8').decode('unicode-escape')
+
+        # if "add" in item._nodeid:
+        #     item.add_marker(pytest.mark.add)
+        # if "div" in item._nodeid:
+        #     item.add_marker(pytest.mark.div)

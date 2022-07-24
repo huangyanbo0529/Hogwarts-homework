@@ -27,30 +27,34 @@ def teardown_function():
     print(f"结束计算 >>>>类级别")
 
 
+@pytest.mark.run(order=4)
 @pytest.mark.parametrize("a, b, expected1", [
     (1, 1, 2), (2, 2, 4), (5, 8, 13)
-], ids=["case1", "case2", "case3"])
+], ids=["加法case1", "加法case2", "加法case3"])
 def test_add_func(a, b, expected1):
     assert expected1 == calculator.add(a, b)
 
 
+@pytest.mark.run(order=3)
 @pytest.mark.parametrize("a, b, expected1", [
     (2, 1, 1), (4, 2, 2), (13, 8, 5)
-], ids=["case1", "case2", "case3"])
+], ids=["减法case1", "减法case2", "减法case3"])
 def test_sub_func(a, b, expected1):
     assert expected1 == calculator.sub(a, b)
 
 
+@pytest.mark.run(order=2)
 @pytest.mark.parametrize("a, b, expected1", [
     (2, 1, 2), (2, 2, 4), (5, 8, 40)
-], ids=["case1", "case2", "case3"])
+], ids=["乘法case1", "乘法case2", "乘法case3"])
 def test_mul_func(a, b, expected1):
     assert expected1 == calculator.mul(a, b)
 
 
+@pytest.mark.run(order=1)
 @pytest.mark.parametrize("a, b, expected1", [
     (4, 2, 2), (18, 3, 6), (30, 5, 6)
-], ids=["case1", "case2", "case3"])
+], ids=["除法case1", "除法case2", "除法case3"])
 def test_div_func(a, b, expected1):
     assert expected1 == calculator.div(a, b)
 
