@@ -6,9 +6,11 @@ import pytest
 
 
 # autouse默认为False,True自动引用，不需要显示指定
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def my_fixture():
-    print("执行my_fixture")
+    print(f"开始执行my_fixture")
+    yield "返回值给调用者"  # 执行到此处函数挂起，直到调用者结束，重新唤醒，继续执行
+    print(f"结束执行my_fixture")
 
 
 def pytest_collection_modifyitems(session, config, items):
