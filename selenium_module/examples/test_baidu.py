@@ -12,7 +12,6 @@ from selenium_module.examples.base import Base
 
 
 class TestBaidu(Base):
-
     def test_baidu_search(self):
         self.driver.get("https://www.baidu.com/")
         self.driver.find_element(By.CSS_SELECTOR, "#kw").send_keys("山上彻也" + Keys.SPACE + "刺杀安倍")

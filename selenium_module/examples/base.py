@@ -7,7 +7,7 @@ import os
 from selenium import webdriver
 
 
-class Base():
+class Base:
     def setup(self):
         browser = os.getenv("browser")
         if browser == 'firefox':
