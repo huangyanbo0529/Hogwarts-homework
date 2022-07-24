@@ -7,7 +7,6 @@ from time import sleep
 import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
 from selenium_module.examples.base import Base
 
 
