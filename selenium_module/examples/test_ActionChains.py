@@ -12,6 +12,7 @@ from selenium.webdriver.common.by import By
 class TestActionChains:
     def setup_class(self):
         self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(5)
         self.driver.maximize_window()
 
     def teardown_class(self):
